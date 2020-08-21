@@ -9,6 +9,7 @@
   * Opengl
   * GLFW
   * Some other stuff
+  * FreeType for texts
 
 ## Story
 #### Puj 
