@@ -1,4 +1,4 @@
-#include "Renderer.h"
+﻿#include "Renderer.h"
 using namespace Graphics;
 
 void Renderer::init(GLfloat width, GLfloat height)
@@ -27,11 +27,13 @@ void Renderer::init(GLfloat width, GLfloat height)
 		fprintf(stderr, "Failed to initialize GLEW\n");
 	}
 	glViewport(0, 0, Width, Height);
+	camera.init();
+	control = new Controls(window, &camera);
 
-	modelProgram = ShaderProgram("Model.vs", "Model.fs");
-
+	modelProgram = ShaderProgram("ModelTextured.vs", "ModelTextured.fs");
+	
 	cube = new Cube();
-	cube->init("D:/cube.stl");
+	cube->init("D:/ane/0.obj");
 
 	//Keyboard, mouse, window basic set up
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -51,7 +53,7 @@ void Renderer::render()
 	// glClear(GL_COLOR_BUFFER_BIT);
 	// Clear the screen
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	cube->update(modelProgram);
+	cube->render(modelProgram, camera);
 
 	glfwSwapBuffers(window);
 	glfwPollEvents();

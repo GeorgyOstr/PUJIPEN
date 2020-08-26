@@ -12,7 +12,7 @@ namespace Graphics
 	public:
 		void Cube::init(std::string const& path);
 
-		void update(ShaderProgram& program);
+		void render(ShaderProgram& program, Camera& camera);
 
 		void clean();
 

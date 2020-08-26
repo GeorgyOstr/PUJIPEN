@@ -155,9 +155,11 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Control.cpp" />
+    <ClCompile Include="Controls.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Pujipen.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
@@ -167,14 +169,18 @@
   <ItemGroup>
     <None Include="Model.fs" />
     <None Include="Model.vs" />
+    <None Include="ModelTextured.fs" />
+    <None Include="ModelTextured.vs" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Control.h" />
+    <ClInclude Include="Controls.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderProgram.h" />

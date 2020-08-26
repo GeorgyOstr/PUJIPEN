@@ -3,16 +3,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <vector>
-//OpenGL 
-// Include GLEW
-#include "../Camera.h"
+
 #include <GL/glew.h>
-// Include GLFW
 #include <GLFW/glfw3.h>
-// Include GLM
-#include <glm/glm.hpp>
-#include <glm/gtx/transform.hpp> 
-#include <glm/gtc/matrix_transform.hpp>
+
+#include "Camera.h"
+#include "Controls.h"
 
 #include "Cube.h"
 
@@ -31,6 +27,7 @@ namespace Graphics {
 	private:
 		GLFWwindow* window;
 		Camera camera;
+		Controls* control;
 
 		Cube* cube;
 
