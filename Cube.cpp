@@ -10,17 +10,9 @@ void Cube::init(std::string const& path)
 void Cube::render(ShaderProgram& program, Camera& camera)
 {
 	//glEnable(GL_CULL_FACE);
-
-	glm::mat4 scale = glm::mat4(
-		10.0, 0.0, 0.0, 0.0,
-		0.0, 10.0, 0.0, 0.0,
-		0.0, 0.0, 10.0, 0.0,
-		0.0, 0.0, 0.0, 1.0
-	);
-
 	program.use();
 	program.setMat4("viewProjection", camera.getViewProjection());
-	program.setMat4("model", scale);
+	program.setMat4("model", getTransformMatrix());
 
 	//program.setVec3("lightPos", camera.getPosition());
 	//program.setVec3("viewPos", camera.getPosition());
@@ -28,7 +20,7 @@ void Cube::render(ShaderProgram& program, Camera& camera)
 	//program.setVec3("lightColor", glm::vec3(1.0f, 1.0f, 1.0f));
 
 	model->Draw(program);
-	//glDisable(GL_CULL_FACE);
+//	glDisable(GL_CULL_FACE);
 }
 
 

@@ -48,7 +48,7 @@ namespace Graphics
 		}
 
 	private:
-		glm::mat3 orientation;
-		glm::vec3 position;
+		glm::mat3 orientation=glm::mat3(1.0f);
+		glm::vec3 position=glm::vec3(0.0f,0.0f,0.0f);
 	};
 }

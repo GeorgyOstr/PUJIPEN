@@ -1,4 +1,5 @@
 ﻿#include "Renderer.h"
+#include <filesystem>
 using namespace Graphics;
 
 void Renderer::init(GLfloat width, GLfloat height)
@@ -16,7 +17,7 @@ void Renderer::init(GLfloat width, GLfloat height)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// Open a window and create its OpenGL context
-	window = glfwCreateWindow(Width, Height, "Robot Simulator", NULL, NULL);
+	window = glfwCreateWindow(Width, Height, "PUJIPEN", NULL, NULL);
 	if (window == NULL) {
 		fprintf(stderr, "Failed to open GLFW window. If you have an Intel GPU, they are not 3.3 compatible. Try the 2.1 version of the tutorials.\n");
 		glfwTerminate();
@@ -32,8 +33,22 @@ void Renderer::init(GLfloat width, GLfloat height)
 
 	modelProgram = ShaderProgram("ModelTextured.vs", "ModelTextured.fs");
 	
-	cube = new Cube();
-	cube->init("D:/ane/0.obj");
+	std::string path = std::filesystem::current_path().string();
+	std::replace(path.begin(), path.end(), '\\', '/');
+	
+	const auto cube = new Cube();
+	cube->init(path + "/resources/axis.fbx");
+	
+	const auto cube2 = new Cube();
+	cube2->init(path + "/resources/axis.fbx");
+	cube2->setPosition(glm::vec3(10.0f, 10.0f, 10.0f));
+	cube2->setOrientation(glm::mat3(
+		1.0f, 0.0f, 0.0f,
+		0.0f, 0.0f, 1.0f,
+		0.0f, -1.0f, 0.0f));
+
+	objects.emplace_back(cube);
+	objects.emplace_back(cube2);
 
 	//Keyboard, mouse, window basic set up
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -53,7 +68,10 @@ void Renderer::render()
 	// glClear(GL_COLOR_BUFFER_BIT);
 	// Clear the screen
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	cube->render(modelProgram, camera);
+	for (auto& object : objects) // access by reference to avoid copying
+	{
+		object->render(modelProgram, camera);
+	}
 
 	glfwSwapBuffers(window);
 	glfwPollEvents();
@@ -68,7 +86,10 @@ int Renderer::isWorking()
 
 void Renderer::cleanUp()
 {
-	cube->clean();
+	for (auto& object : objects) // access by reference to avoid copying
+	{
+		object->clean();
+	}
 
 	glfwTerminate();
 }

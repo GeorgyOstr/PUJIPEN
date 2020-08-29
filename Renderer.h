@@ -29,7 +29,7 @@ namespace Graphics {
 		Camera camera;
 		Controls* control;
 
-		Cube* cube;
+		std::vector<Cube*> objects;
 
 		ShaderProgram modelProgram;
 

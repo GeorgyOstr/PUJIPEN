@@ -100,6 +100,7 @@
       <CompileAs>CompileAsCpp</CompileAs>
       <UseFullPaths>false</UseFullPaths>
       <AdditionalOptions>/D "WIN32" /D "_WINDOWS" /D "NDEBUG" /D "TW_STATIC" /D "TW_NO_LIB_PRAGMA" /D "TW_NO_DIRECT3D" /D "GLEW_STATIC" /D "_CRT_SECURE_NO_WARNINGS" %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -111,7 +112,9 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
     <PreBuildEvent>
-      <Command>copy $(SolutionDir)external\assimp\*.dll $(TargetDir)</Command>
+      <Command>copy $(SolutionDir)external\assimp\*.dll $(TargetDir)
+copy $(SolutionDir)resources\*.fbx $(TargetDir)
+copy $(SolutionDir)resources\*.obj $(TargetDir)</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -139,6 +142,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)external\glew\include\GL;$(SolutionDir)external\glew\include;$(SolutionDir)external\glfw\glfw-3.3\include;$(SolutionDir)external\glm;$(SolutionDir)external;$(SolutionDir)external\stb;$(SolutionDir)external\assimp\include</AdditionalIncludeDirectories>
       <AdditionalOptions>/D "WIN32" /D "_WINDOWS" /D "NDEBUG" /D "TW_STATIC" /D "TW_NO_LIB_PRAGMA" /D "TW_NO_DIRECT3D" /D "GLEW_STATIC" /D "_CRT_SECURE_NO_WARNINGS" %(AdditionalOptions)</AdditionalOptions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,10 +153,13 @@
       <AdditionalDependencies>opengl32.lib;glu32.lib;$(SolutionDir)external\assimp\assimp-vc142-mt.lib;$(SolutionDir)external\glfw\glfw3.lib;$(SolutionDir)external\glew\lib\Release\x64\glew32s.lib;$(SolutionDir)external\assimp\assimp-vc142-mt.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
-      <Command>copy $(SolutionDir)external\assimp\*.dll $(TargetDir)</Command>
+      <Command>copy $(SolutionDir)external\assimp\*.dll $(TargetDir)
+copy $(SolutionDir)resources\*.fbx $(TargetDir)
+copy $(SolutionDir)resources\*.obj $(TargetDir)</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Axis.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Control.cpp" />
     <ClCompile Include="Controls.cpp" />
@@ -174,6 +181,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Axis.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Control.h" />
     <ClInclude Include="Controls.h" />

@@ -54,6 +54,9 @@
     <ClCompile Include="Controls.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Axis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">
@@ -101,6 +104,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Controls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Axis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

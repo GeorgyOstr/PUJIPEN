@@ -4,10 +4,11 @@
 #include "Mesh.h"
 #include "Model.h"
 #include "Camera.h"
+#include "Object.h"
 
 namespace Graphics
 {
-	class Cube
+	class Cube : public Object
 	{
 	public:
 		void Cube::init(std::string const& path);
