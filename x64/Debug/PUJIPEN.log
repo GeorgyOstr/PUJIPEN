@@ -1,5 +1,0 @@
-﻿  C:\Users\georg\OneDrive\ドキュメント\PUJIPEN\external\assimp\assimp-vc142-mt.dll
-          1 file(s) copied.
-  Cube.cpp
-C:\Users\georg\OneDrive\ドキュメント\PUJIPEN\Mesh.h(83,1): warning C4267: 'argument': conversion from 'size_t' to 'GLsizei', possible loss of data
-  PUJIPEN.vcxproj -> C:\Users\georg\OneDrive\ドキュメント\PUJIPEN\x64\Debug\PUJIPEN.exe
