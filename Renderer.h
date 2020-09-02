@@ -11,6 +11,7 @@
 #include "Controls.h"
 
 #include "Cube.h"
+#include "Axis.h"
 
 namespace Graphics {
 	class Renderer
@@ -29,9 +30,9 @@ namespace Graphics {
 		Camera camera;
 		Controls* control;
 
-		std::vector<Cube*> objects;
+		std::vector<Drawable*> objects;
 
-		ShaderProgram modelProgram;
+		std::vector<ShaderProgram*> programs;
 
 		GLfloat Width;
 		GLfloat Height;

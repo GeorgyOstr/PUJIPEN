@@ -1,7 +1,7 @@
 #include "Cube.h"
 using namespace Graphics;
 
-void Cube::init(std::string const& path)
+void Cube::init()
 {
 	model = new Model();
 	model->init(path);

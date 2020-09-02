@@ -30,7 +30,7 @@ namespace Graphics
 		glm::mat4 getViewProjection() const
 		{
 			const glm::mat4 View = getTransformMatrix();
-			glm::mat4 Projection = perspective(-zoom * screenRatio / 2, zoom * screenRatio / 2, -zoom / 2, zoom / 2, near, far);
+			glm::mat4 Projection = glm::ortho(-zoom * screenRatio / 2, zoom * screenRatio / 2, -zoom / 2, zoom / 2, near, far);
 			return Projection * View;
 		}
 		
@@ -44,7 +44,7 @@ namespace Graphics
 		GLfloat far = 200.0f;
 
 		GLfloat screenRatio = 1920.0f / 1080.0f;
-		GLfloat zoom = 1.0f; //Value = distance between Up and Down
+		GLfloat zoom = 100.0f; //Value = distance between Up and Down
 	};
 }
 

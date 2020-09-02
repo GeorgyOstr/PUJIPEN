@@ -31,24 +31,35 @@ void Renderer::init(GLfloat width, GLfloat height)
 	camera.init();
 	control = new Controls(window, &camera);
 
-	modelProgram = ShaderProgram("ModelTextured.vs", "ModelTextured.fs");
+	const auto modelProgram = new ShaderProgram("ModelTextured.vs", "ModelTextured.fs");
+	const auto axisProgram = new ShaderProgram("Axis.vs", "Axis.fs");
 	
+	programs.emplace_back(modelProgram);
+	programs.emplace_back(modelProgram);
+	programs.emplace_back(axisProgram);
+
 	std::string path = std::filesystem::current_path().string();
 	std::replace(path.begin(), path.end(), '\\', '/');
 	
 	const auto cube = new Cube();
-	cube->init(path + "/resources/axis.fbx");
+	cube->setPath(path + "/resources/axis.fbx");
+	cube->init();
 	
 	const auto cube2 = new Cube();
-	cube2->init(path + "/resources/axis.fbx");
+	cube2->setPath(path + "/resources/axis.fbx");
+	cube2->init(); 
 	cube2->setPosition(glm::vec3(10.0f, 10.0f, 10.0f));
 	cube2->setOrientation(glm::mat3(
 		1.0f, 0.0f, 0.0f,
 		0.0f, 0.0f, 1.0f,
 		0.0f, -1.0f, 0.0f));
 
+	const auto axis = new Axis();
+	axis->init();
+
 	objects.emplace_back(cube);
 	objects.emplace_back(cube2);
+	objects.emplace_back(axis);
 
 	//Keyboard, mouse, window basic set up
 	glfwSetInputMode(window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -68,9 +79,9 @@ void Renderer::render()
 	// glClear(GL_COLOR_BUFFER_BIT);
 	// Clear the screen
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	for (auto& object : objects) // access by reference to avoid copying
+	for (int i = 0; i < objects.size(); i++) // access by reference to avoid copying
 	{
-		object->render(modelProgram, camera);
+		objects[i]->render(*programs[i], camera);
 	}
 
 	glfwSwapBuffers(window);

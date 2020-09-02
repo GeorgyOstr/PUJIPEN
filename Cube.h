@@ -1,24 +1,27 @@
 #pragma once
-
-
 #include "Mesh.h"
 #include "Model.h"
-#include "Camera.h"
-#include "Object.h"
+#include "Drawable.h"
 
 namespace Graphics
 {
-	class Cube : public Object
+	class Cube : public Drawable
 	{
 	public:
-		void Cube::init(std::string const& path);
+		void init();
 
 		void render(ShaderProgram& program, Camera& camera);
 
 		void clean();
 
+		void setPath(std::string const& path_in)
+		{
+			path = path_in;
+		}
+
 	private:
 		Model* model;
 		GLuint polygonMode;
+		std::string path;
 	};
 }
