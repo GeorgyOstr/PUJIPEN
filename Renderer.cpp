@@ -41,11 +41,11 @@ void Renderer::init(GLfloat width, GLfloat height)
 	std::string path = std::filesystem::current_path().string();
 	std::replace(path.begin(), path.end(), '\\', '/');
 	
-	const auto cube = new Cube();
+	const auto cube = new AssimpModel();
 	cube->setPath(path + "/resources/axis.fbx");
 	cube->init();
 	
-	const auto cube2 = new Cube();
+	const auto cube2 = new AssimpModel();
 	cube2->setPath(path + "/resources/axis.fbx");
 	cube2->init(); 
 	cube2->setPosition(glm::vec3(10.0f, 10.0f, 10.0f));

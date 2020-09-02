@@ -1,13 +1,13 @@
-#include "Cube.h"
+#include "AssimpModel.h"
 using namespace Graphics;
 
-void Cube::init()
+void AssimpModel::init()
 {
 	model = new Model();
 	model->init(path);
 }
 
-void Cube::render(ShaderProgram& program, Camera& camera)
+void AssimpModel::render(ShaderProgram& program, Camera& camera)
 {
 	//glEnable(GL_CULL_FACE);
 	program.use();
@@ -24,6 +24,6 @@ void Cube::render(ShaderProgram& program, Camera& camera)
 }
 
 
-void Cube::clean()
+void AssimpModel::clean()
 {
 }

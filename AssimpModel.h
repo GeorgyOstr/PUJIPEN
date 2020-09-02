@@ -5,7 +5,7 @@
 
 namespace Graphics
 {
-	class Cube : public Drawable
+	class AssimpModel : public Drawable
 	{
 	public:
 		void init();

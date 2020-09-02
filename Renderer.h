@@ -10,7 +10,7 @@
 #include "Camera.h"
 #include "Controls.h"
 
-#include "Cube.h"
+#include "AssimpModel.h"
 #include "Axis.h"
 
 namespace Graphics {
