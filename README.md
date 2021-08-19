@@ -13,8 +13,8 @@
 
 ## Story
 #### Puj 
-is fine bird like girl, with a crown, clever. Like's coffe
+is fine bird like girl, with a crown, clever. Like's coffee
 #### Pen
-is kind of tree stump dude, wise. Like's elecronics
+is kind of tree stump dude, wise. Like's electronics
 
 They are good friends.
