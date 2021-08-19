@@ -1,7 +1,7 @@
 # Puj I Pen
 
 ## Intro
-* It should be kind of an intersting and fun game about journeys of 2 friends.
+* It should be kind of an interesting and fun game about journeys of 2 friends.
 * Based on original story.
 
 ## Code aspects
